@@ -1,6 +1,10 @@
+// Modules import
 import type { NextPage } from "next";
+
+// Style sheet import
 import styles from "../styles/pages/dashboard.module.scss";
 
+// Dashboard cards
 const CurrentClass = () => {
     return (
         <div className={styles["class-card"]}>
@@ -14,7 +18,7 @@ const CurrentClass = () => {
     );
 }
 
-const Home:NextPage = () => {
+const Home: NextPage = () => {
     return (
         <main className={styles["dashboard"]}>
             <div>
