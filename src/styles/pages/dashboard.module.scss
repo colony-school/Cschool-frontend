@@ -1,0 +1,6 @@
+@use "../components/card.scss" as cc;
+
+.card {
+    @include cc.card;
+    padding: 1rem;
+}
