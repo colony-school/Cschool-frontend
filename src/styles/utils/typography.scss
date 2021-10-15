@@ -1,0 +1,9 @@
+@mixin max-lines($number) {
+    line-height: 1.35em;
+    overflow: hidden;
+    word-break: break-word;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: $number;
+    -webkit-box-orient: vertical;
+}

@@ -1,6 +1,35 @@
+@use "../abstracts/palette.scss" as p;
 @use "../components/card.scss" as cc;
+@use "../utils/typography.scss" as ut;
 
-.card {
-    @include cc.card;
-    padding: 1rem;
+.dashboard {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    width: calc(100vw - 20rem);
+}
+
+.class {
+    &-card {
+        @include cc.card();
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        padding: 0.5rem;
+    }
+    &-header {
+        font-size: 1.7rem;
+    }
+    &-class {
+        @include cc.card-flat(p.$card-inner);
+        padding: 0.5rem;
+    }
+    &-name {
+        @include ut.max-lines(1);
+        font-size: 1.2rem;
+    }
+    &-class,
+    &-teacher {
+        font-size: 0.8rem;
+    }
 }
