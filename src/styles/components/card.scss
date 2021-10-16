@@ -7,6 +7,12 @@
     border-radius: s.$border-radius;
 }
 
+@mixin card-white() {
+    background: p.$card;
+    box-shadow: 0 0.2rem 0 p.$side;
+    border-radius: s.$border-radius;
+}
+
 @mixin card-flat($background) {
     background: $background;
     border-radius: s.$border-radius;
