@@ -18,6 +18,12 @@ const CurrentClass = (): JSX.Element => {
                 <p className={styles["class-teacher"]}>T. Smart Wattanapornmongkol</p>
                 <p className={styles["class-no-assgn"]}>2 assignments due</p>
             </div>
+            <div className={styles["class-button-container"]}>
+                <div className={styles["class-button"]}>
+                    <button className={styles["class-button-join"]}>Join Meet</button>
+                    <button className={styles["class-button-ggc"]}>Classroom</button>
+                </div>
+            </div>
         </section>
     );
 }
@@ -26,9 +32,39 @@ const CurrentClass = (): JSX.Element => {
  * Paid club advertisements and school call to actions
  */
 const Featured = (): JSX.Element => {
+    type FeaturedCardProps = {
+        header: string,
+        desc: string,
+        color: string
+    }
+    const FeaturedCard = ({ header, desc, color }: FeaturedCardProps): JSX.Element => {
+        return (
+            <li className={styles["featured-item-card"]} style={{ background: `linear-gradient(90deg, ${color}, #FFFFFF 6.5rem)` }}>
+                <div />
+                <div className={styles["featured-item-content"]}>
+                    <h2 className={styles["featured-item-header"]}>{header}</h2>
+                    <p className={styles["featured-item-desc"]}>{desc}</p>
+                    <div className={styles["featured-cta-container"]}>
+                        <button className={styles["featured-cta"]}>Register</button>
+                    </div>
+                </div>
+            </li>
+        );
+    }
+
     return (
-        <section className={styles["card"]}>
+        <section className={styles["featured-card"]}>
             <h1 className={styles["header"]}>Featured</h1>
+            <ul className={styles["featured-list"]}>
+                <FeaturedCard
+                    header="Get your Pfizer shot"
+                    desc="Pfizer shots are now available for registeration"
+                    color="#0073A5" />
+                <FeaturedCard
+                    header="Join the Imsad Club!"
+                    desc="We can be Im and be sad together at the Imsad club!"
+                    color="#A00000" />
+            </ul>
         </section>
     );
 }
