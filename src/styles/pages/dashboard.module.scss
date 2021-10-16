@@ -21,7 +21,7 @@
         font-size: 1.7rem;
     }
     &-class {
-        @include cc.card-flat(p.$card-inner);
+        @include cc.card-flat(p.$card);
         padding: 0.5rem;
     }
     &-name {

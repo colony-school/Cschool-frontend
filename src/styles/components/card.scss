@@ -1,10 +1,13 @@
+@use "../abstracts/palette.scss" as p;
+@use "../abstracts/sizes.scss" as s;
+
 @mixin card() {
-    background: #E9E9E9;
-    box-shadow: 0 0.2rem 0 #B4B4B4;
-    border-radius: 0.5rem;
+    background: p.$secondary;
+    box-shadow: 0 0.2rem 0 p.$side;
+    border-radius: s.$border-radius;
 }
 
 @mixin card-flat($background) {
     background: $background;
-    border-radius: 0.5rem;
+    border-radius: s.$border-radius;
 }
