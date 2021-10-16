@@ -1,11 +1,11 @@
-// Modules import
+// External modules import
 import type { NextPage } from "next";
 
 // Style sheet import
 import styles from "../styles/pages/dashboard.module.scss";
 
 // Dashboard cards
-const CurrentClass = () => {
+const CurrentClass = (): JSX.Element => {
     return (
         <div className={styles["class-card"]}>
             <h1 className={styles["class-header"]}>Current Class</h1>
@@ -18,7 +18,7 @@ const CurrentClass = () => {
     );
 }
 
-const Home: NextPage = () => {
+export const Home: NextPage = () => {
     return (
         <main className={styles["dashboard"]}>
             <div>

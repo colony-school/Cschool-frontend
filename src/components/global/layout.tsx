@@ -17,9 +17,11 @@ export const Layout = ({ children }: LayoutProps): JSX.Element  => {
                 {name: "To-do", url: "/to-do"},
                 {name: "Classrooms", url: "/classrooms?school=1&class=405"}
             ]} />
-            <main className={styles["main"]}>
-                {children}
-            </main>
+            <div>
+                <main className={styles["main"]}>
+                    {children}
+                </main>
+            </div>
         </div>
     );
 }
