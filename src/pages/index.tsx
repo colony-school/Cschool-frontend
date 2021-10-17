@@ -39,13 +39,13 @@ const Featured = (): JSX.Element => {
     }
     const FeaturedCard = ({ header, desc, color }: FeaturedCardProps): JSX.Element => {
         return (
-            <li className={styles["featured-item-card"]} style={{ background: `linear-gradient(90deg, ${color}, #FFFFFF 6.5rem)` }}>
+            <li className={styles["featured-item-card"]} style={{ background: `linear-gradient(90deg, ${color}, #FFFFFF 10rem)` }}>
                 <div />
                 <div className={styles["featured-item-content"]}>
                     <h2 className={styles["featured-item-header"]}>{header}</h2>
                     <p className={styles["featured-item-desc"]}>{desc}</p>
                     <div className={styles["featured-cta-container"]}>
-                        <button className={styles["featured-cta"]}>Register</button>
+                        <button className={styles["featured-cta"]} style={{ background: color }}>Register</button>
                     </div>
                 </div>
             </li>
@@ -73,9 +73,25 @@ const Featured = (): JSX.Element => {
  * Official announcements from the school on shorten periods, meetings, events
  */
 const SchoolAnnouncements = (): JSX.Element => {
+    const Announcement = (): JSX.Element => {
+        return (
+            <div className={styles["announcements-item-card"]}>
+                <div className={styles["announcements-item-date"]}>
+                    <div className={styles["announcements-item-date-number"]}>12</div>
+                    <div className={styles["announcements-item-date-month"]}>SEP</div>
+                </div>
+                <div className={styles["announcements-item-content"]}>
+                    <h2 className={styles["announcements-item-header"]}>Shortened periods from period 4 onwards</h2>
+                    <p className={styles["announcements-item-desc"]}>Shortened periods due to a school-wide teacher meeting at 16:00</p>
+                </div>
+            </div>
+        );
+    }
+
     return (
         <section className={styles["card"]}>
             <h1 className={styles["header"]}>School Announcements</h1>
+            <Announcement />
         </section>
     );
 }
