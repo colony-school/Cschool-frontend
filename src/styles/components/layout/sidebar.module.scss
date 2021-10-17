@@ -1,0 +1,21 @@
+@use "../../abstracts/palette.scss" as p;
+@use "../../abstracts/sizes.scss" as s;
+@use "../card.scss" as cc;
+
+.sidebar {
+    @include cc.card();
+    position: fixed;
+    width: s.$sidebar-width;
+    height: calc(100vh - 5rem);
+    padding: 1rem;
+    border-radius: s.$border-radius 0 0 s.$border-radius;
+    
+    &-openned-true {
+        @extend .sidebar;
+        right: 0;
+    }
+    &-openned-false {
+        @extend .sidebar;
+        right: -14rem;
+    }
+}
