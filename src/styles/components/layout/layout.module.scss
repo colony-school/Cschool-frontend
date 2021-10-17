@@ -1,4 +1,23 @@
-.main {
+@use "../../abstracts/sizes.scss" as s;
+
+.grid {
+    display: grid;
     position: relative;
     top: 2.5rem;
+    width: calc(100vw - 1rem);
+    overflow: hidden;
+
+    &-openned-true {
+        @extend .grid;
+        grid-template-columns: auto s.$sidebar-width + 2;
+    }
+    &-openned-false {
+        @extend .grid;
+        grid-template-columns: auto 1rem;
+    }
+}
+
+.main {
+    display: flex;
+    justify-content: center;
 }
