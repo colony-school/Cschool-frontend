@@ -166,3 +166,16 @@
         @include cb.button(p.$primary, p.$text-secondary, 1rem);
     }
 }
+
+.due {
+    &-content {
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+    }
+}
+
+.due-later {
+    &-card {
+        @include cc.card-flat(p.$card);
+    }
+}

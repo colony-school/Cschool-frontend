@@ -17,7 +17,7 @@ const CurrentClass = (): JSX.Element => {
                 <p className={styles["class-teacher"]}>T. Smart Wattanapornmongkol</p>
                 <p className={styles["class-no-assgn"]}>2 assignments due</p>
                 <div className={styles["class-time"]}>
-                    <p className={styles["class-time-label"]}>08:30-09:20</p>
+                    <p className={styles["class-time-label"]}>08:30–09:20</p>
                     <ProgressBar completed={25} isLabelVisible={false} />
                 </div>
             </div>
@@ -144,7 +144,13 @@ const SchoolAnnouncements = (): JSX.Element => {
 const DueSoon = (): JSX.Element => {
     return (
         <section className={styles["card"]}>
-            <h1 className={styles["header"]}>Due Soon</h1>
+            <div className={styles["due-content"]}>
+                <div>
+                    <h1 className={styles["header"]}>Due Soon</h1>
+                    <div className={styles["due-later-card"]}>Hi</div>
+                </div>
+                <div className={styles["due-today-card"]}>Hi</div>
+            </div>
         </section>
     );
 }
