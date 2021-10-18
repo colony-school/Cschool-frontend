@@ -152,6 +152,9 @@
     justify-content: flex-end;
     align-items: center;
     gap: 1rem;
+    > .announcements-item-read {
+        color: p.$accent;
+    }
     > .announcements-item-share {
         @include cb.button(p.$primary, p.$text-secondary, 1rem);
     }
