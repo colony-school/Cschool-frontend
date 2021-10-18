@@ -108,11 +108,10 @@
 
 .announcements {
     &-card {
-        @include cc.card();
+        @extend .card;
         display: flex;
         flex-direction: column;
         gap: 0.3rem;
-        padding: 0.3rem;
     }
 }
 
@@ -168,13 +167,51 @@
 }
 
 .due {
+    &-card {
+        @extend .card;
+    }
     &-content {
         display: grid;
-        grid-template-columns: 2fr 1fr;
+        grid-template-columns: 3fr 2fr;
+        gap: 0.5rem;
+    }
+    &-list {
+        display: flex;
+        flex-direction: column;
+        gap: 0.3rem;
+        padding: 0.3rem;
+        list-style: none;
+    }
+    &-item {
+        padding: 0.2rem 0;
+        border-bottom: 0.1rem solid p.$secondary;
+        &:last-child {
+            border: none;
+        }
+        &-title {
+            display: flex;
+            gap: 0.2rem;
+        }
+        &-name {
+            font-weight: 800;
+        }
+        &-date {
+            font-size: 0.9rem;
+        }
+        &-due {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        &-status {
+            @include cc.card-pill(p.$failure, false);
+            color: p.$text-secondary;
+            padding: 0.1rem 0.8rem;
+        }
     }
 }
-
-.due-later {
+// 
+.due-later, .due-today {
     &-card {
         @include cc.card-flat(p.$card);
     }

@@ -1,0 +1,40 @@
+@use "../abstracts/palette.scss" as p;
+@use "../components/card.scss" as cc;
+
+.classrooms-card {
+    display: grid;
+    grid-template-rows: 2rem, auto;
+    grid-template-areas:
+        "school-filter"
+        "grade-card";
+}
+
+.school-filter {
+    grid-area: school-filter;
+}
+
+.grade-card {
+    @include cc.card();
+    grid-area: grade-card;
+    height: 8rem;
+    width: 45rem;
+    padding: 0.5rem;
+}
+
+.program-container {
+    display: grid;
+    grid-template-columns: 1rem, auto;
+    grid-template-areas: 
+        "program classes";
+}
+
+.program {
+    grid-area: program;
+}
+
+.classes {
+    grid-area: classes;
+    @include cc.card-pill(p.$card);
+    padding: 0.1rem 0.3rem;
+}
+

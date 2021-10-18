@@ -23,3 +23,11 @@
     // border: 0.075rem solid #000000;
     border-radius: s.$border-radius;
 }
+
+@mixin card-pill($background, $has-side: true) {
+    @if ($has-side) {
+        box-shadow: 0 0.2rem 0 p.$side;
+    }
+    background: $background;
+    border-radius: 2rem;
+}

@@ -78,7 +78,7 @@ const Featured = (): JSX.Element => {
 const SchoolAnnouncements = (): JSX.Element => {
     const month: Array<string> = [
         "JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"
-    ]
+    ];
 
     type AnnouncementProps = {
         title: string,
@@ -142,12 +142,33 @@ const SchoolAnnouncements = (): JSX.Element => {
  * A minified to-do list for the Dashboard
  */
 const DueSoon = (): JSX.Element => {
+    const DueItem = (): JSX.Element => {
+        return (
+            <li className={styles["due-item"]}>
+                <div className={styles["due-item-title"]}>
+                    <span className={styles["due-item-name"]}>Tideman</span>
+                    <span className={styles["due-item-subj"]}>CS50</span>
+                </div>
+                <div className={styles["due-item-due"]}>
+                    <span className={styles["due-item-date"]}>06/10/2021</span>
+                    <span className={styles["due-item-status"]}>Past due</span>
+                </div>
+            </li>
+        );
+    }
+
     return (
-        <section className={styles["card"]}>
+        <section className={styles["due-card"]}>
             <div className={styles["due-content"]}>
                 <div>
                     <h1 className={styles["header"]}>Due Soon</h1>
-                    <div className={styles["due-later-card"]}>Hi</div>
+                    <div className={styles["due-later-card"]}>
+                        <ul className={styles["due-list"]}>
+                            <DueItem />
+                            <DueItem />
+                            <DueItem />
+                        </ul>
+                    </div>
                 </div>
                 <div className={styles["due-today-card"]}>Hi</div>
             </div>
@@ -156,7 +177,7 @@ const DueSoon = (): JSX.Element => {
 }
 
 // Main component
-export const Home: NextPage = () => {
+const Dashboard: NextPage = () => {
     return (
         <main className={styles["dashboard"]}>
             <div className={styles["dashboard-column"]}>
@@ -171,4 +192,4 @@ export const Home: NextPage = () => {
     );
 }
 
-export default Home;
+export default Dashboard;
