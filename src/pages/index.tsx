@@ -4,6 +4,7 @@ import ProgressBar from "@ramonak/react-progress-bar";
 
 // Style sheet import
 import styles from "../styles/pages/dashboard.module.scss";
+import { Status } from "../components/work/status";
 
 /**
  * The current class card
@@ -151,7 +152,7 @@ const DueSoon = (): JSX.Element => {
                 </div>
                 <div className={styles["due-item-due"]}>
                     <span className={styles["due-item-date"]}>06/10/2021</span>
-                    <span className={styles["due-item-status"]}>Past due</span>
+                    <Status status={0} />
                 </div>
             </li>
         );
