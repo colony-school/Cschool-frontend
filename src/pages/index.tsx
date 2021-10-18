@@ -95,6 +95,13 @@ const SchoolAnnouncements = (): JSX.Element => {
                     ? <div className={styles["announcements-item-content"]}>
                         <h2 className={styles["announcements-item-header"]}>{title}</h2>
                         <p className={styles["announcements-item-desc"]}>{desc}</p>
+                        <div className={styles["announcements-item-buttons"]}>
+                            <a href={source} target="_blank" rel="noreferrer"
+                                className={styles["announcements-item-read"]}>
+                                Read more
+                            </a>
+                        <button className={styles["announcements-item-share"]}>Share</button>
+                    </div>
                     </div>
                     : <div className={styles["announcements-item-content"]}>
                         <h2 className={styles["announcements-item-header"]}>{title}</h2>

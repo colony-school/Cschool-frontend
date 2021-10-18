@@ -146,3 +146,13 @@
         font-size: 0.9rem;
     }
 }
+
+.announcements-item-buttons {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 1rem;
+    > .announcements-item-share {
+        @include cb.button(p.$primary, p.$text-secondary, 1rem);
+    }
+}
