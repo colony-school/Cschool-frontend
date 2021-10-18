@@ -1,5 +1,6 @@
 // External modules import
 import type { AppProps } from "next/app";
+import { NextSeo } from 'next-seo';
 
 // Internal modules import
 import { Layout } from "../components/global/layout";
@@ -8,12 +9,19 @@ import { Layout } from "../components/global/layout";
 import "../styles/base/global.scss";
 import "../styles/base/reset.scss";
 
+
 // Main component
 function App({ Component, pageProps }: AppProps) {
     return (
-        <Layout>
-            <Component {...pageProps} />
-        </Layout>
+        <>
+            <NextSeo
+                title="Colony-School"
+                description="Everything about Anything"
+            />
+            <Layout>
+                <Component {...pageProps} />
+            </Layout>
+        </>
     );
 }
 
