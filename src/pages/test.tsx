@@ -2,7 +2,7 @@
 import type { NextPage } from "next";
 
 // Internal modules import
-import { Dropdown } from "../components/global/dropdown";
+import { Dropdown } from "../components/form/dropdown";
 
 // Style sheets import
 import styles from "../styles/pages/test.module.scss";

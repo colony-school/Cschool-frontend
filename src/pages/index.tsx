@@ -1,10 +1,9 @@
 // External modules import
 import type { NextPage } from "next";
+import ProgressBar from "@ramonak/react-progress-bar";
 
 // Style sheet import
 import styles from "../styles/pages/dashboard.module.scss";
-
-// Dashboard cards
 
 /**
  * The current class card
@@ -17,6 +16,10 @@ const CurrentClass = (): JSX.Element => {
                 <h2 className={styles["class-name"]}>Mathematics for Machine Learning</h2>
                 <p className={styles["class-teacher"]}>T. Smart Wattanapornmongkol</p>
                 <p className={styles["class-no-assgn"]}>2 assignments due</p>
+                <div className={styles["class-time"]}>
+                    <p className={styles["class-time-label"]}>08:30-09:20</p>
+                    <ProgressBar completed={25} isLabelVisible={false} />
+                </div>
             </div>
             <div className={styles["class-button-container"]}>
                 <div className={styles["class-button"]}>
