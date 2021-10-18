@@ -73,25 +73,57 @@ const Featured = (): JSX.Element => {
  * Official announcements from the school on shorten periods, meetings, events
  */
 const SchoolAnnouncements = (): JSX.Element => {
-    const Announcement = (): JSX.Element => {
+    const month: Array<string> = [
+        "JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"
+    ]
+
+    type AnnouncementProps = {
+        title: string,
+        desc?: string,
+        date: Date,
+        source?: string,
+        main: boolean
+    }
+    const Announcement = ({ title, desc, date, source, main }: AnnouncementProps): JSX.Element => {
         return (
             <div className={styles["announcements-item-card"]}>
                 <div className={styles["announcements-item-date"]}>
-                    <div className={styles["announcements-item-date-number"]}>12</div>
-                    <div className={styles["announcements-item-date-month"]}>SEP</div>
+                    <div className={styles["announcements-item-date-number"]}>{date.getDate()}</div>
+                    <div className={styles["announcements-item-date-month"]}>{month[date.getMonth() - 1]}</div>
                 </div>
-                <div className={styles["announcements-item-content"]}>
-                    <h2 className={styles["announcements-item-header"]}>Shortened periods from period 4 onwards</h2>
-                    <p className={styles["announcements-item-desc"]}>Shortened periods due to a school-wide teacher meeting at 16:00</p>
-                </div>
+                {main
+                    ? <div className={styles["announcements-item-content"]}>
+                        <h2 className={styles["announcements-item-header"]}>{title}</h2>
+                        <p className={styles["announcements-item-desc"]}>{desc}</p>
+                    </div>
+                    : <div className={styles["announcements-item-content"]}>
+                        <h2 className={styles["announcements-item-header"]}>{title}</h2>
+                    </div>
+                }
             </div>
         );
     }
 
     return (
-        <section className={styles["card"]}>
+        <section className={styles["announcements-card"]}>
             <h1 className={styles["header"]}>School Announcements</h1>
-            <Announcement />
+            <Announcement
+                title="Shortened periods from period 4 onwards"
+                desc="Shortened periods due to a school-wide teacher meeting at 16:00"
+                date={new Date(2021, 9, 12)}
+                source="https://imsad.dev"
+                main={true}
+            />
+            <Announcement
+                title="Banana Eating Contest at lunch, no periods cut or shortened"
+                date={new Date(2021, 9, 14)}
+                main={false}
+            />
+            <Announcement
+                title="Periods 4 and onwards is completely cut"
+                date={new Date(2021, 9, 31)}
+                main={false}
+            />
         </section>
     );
 }
