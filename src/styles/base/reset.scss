@@ -1,6 +1,8 @@
+@use "../abstracts/typography.scss" as t;
+
 html {
     font-size: 24px;
-    font-family: "Inter";
+    font-family: t.$font-base;
 }
 
 canvas, caption, center, cite, code, dd, del, dfn, div, dl, dt, em, embed, fieldset, font, form, h1, h2, h3, h4, h5, h6, hr, body, i, iframe,
