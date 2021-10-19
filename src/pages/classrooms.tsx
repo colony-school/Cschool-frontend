@@ -16,7 +16,7 @@ const Classrooms: NextPage = () => {
             <div className={styles["grade-card"]}>
                 <h2 className={styles["grade"]}>M.1</h2>
                 <div className={styles["program-container"]}>
-                    <h3 className={styles["program"]}>error</h3>
+                    <h3 className={styles["program"]}>E-Plus</h3>
                     <span className={styles["classes"]}>404</span>
                 </div>
             </div>

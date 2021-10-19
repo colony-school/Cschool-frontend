@@ -173,8 +173,10 @@ const DueSoon = (): JSX.Element => {
                 </div>
                 <div className={styles["due-today-card"]}>
                     <h2>Today</h2>
-                    <DueItem />
-                    <DueItem />
+                    <ul className={styles["due-list"]}>
+                        <DueItem />
+                        <DueItem />
+                    </ul>
                 </div>
             </div>
         </section>

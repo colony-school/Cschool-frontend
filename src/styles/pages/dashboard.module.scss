@@ -32,7 +32,7 @@
         gap: 0.5rem;
     }
     &-class {
-        @include cc.card-flat(p.$card);
+        @include cc.card(p.$card, false);
         padding: 0.5rem 1rem;
     }
     &-name {
@@ -89,7 +89,7 @@
 
 .featured-item {
     &-card {
-        @include cc.card-flat(p.$card);
+        @include cc.card(p.$card, false);
         display: grid;
         grid-template-columns: 5rem auto;
         grid-template-areas: "image content";
@@ -117,7 +117,7 @@
 
 .announcements-item {
     &-card {
-        @include cc.card-flat(p.$card);
+        @include cc.card(p.$card, false);
         display: grid;
         grid-template-columns: 3rem auto;
         padding: 0.5rem;
@@ -213,6 +213,6 @@
 // 
 .due-later, .due-today {
     &-card {
-        @include cc.card-flat(p.$card);
+        @include cc.card(p.$card, false);
     }
 }
