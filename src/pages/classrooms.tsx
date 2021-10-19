@@ -7,8 +7,8 @@ import styles from "../styles/pages/classrooms.module.scss";
 // Internal modules import
 import { Dropdown } from "../components/form/dropdown";
 
-
-const Classrooms = (): JSX.Element => {
+// Main component
+const Classrooms: NextPage = () => {
     return (
         <section className={styles["classrooms-card"]}>
             <div className={styles["school-filter"]}>
