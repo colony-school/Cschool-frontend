@@ -8,6 +8,7 @@
     grid-template-columns: 1fr 1fr;
     gap: 1rem;
     width: calc(100vw - 20rem);
+    min-width: 48rem;
     padding: 0 1rem 1rem 1rem;
     &-column {
         display: flex;
@@ -94,9 +95,13 @@
         grid-template-columns: 5rem auto;
         grid-template-areas: "image content";
         padding: 0.3rem;
+        height: 6.9rem;  // nice
     }
     &-content {
         grid-area: content;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
     }
     &-header {
         font-size: 1.3rem;
@@ -146,6 +151,7 @@
         gap: 0.3rem;
     }
     &-header {
+        @include ut.max-lines(2);
         font-size: 1.3rem;
     }
     &-desc {

@@ -46,8 +46,10 @@ const Featured = (): JSX.Element => {
             <li className={styles["featured-item-card"]} style={{ background: `linear-gradient(90deg, ${color}, #FFFFFF 10rem)` }}>
                 <div />
                 <div className={styles["featured-item-content"]}>
-                    <h2 className={styles["featured-item-header"]}>{header}</h2>
-                    <p className={styles["featured-item-desc"]}>{desc}</p>
+                    <div>
+                        <h2 className={styles["featured-item-header"]}>{header}</h2>
+                        <p className={styles["featured-item-desc"]}>{desc}</p>
+                    </div>
                     <div className={styles["featured-cta-container"]}>
                         <button className={styles["featured-cta"]} style={{ background: color }}>Register</button>
                     </div>
@@ -202,13 +204,13 @@ const DueSoon = (): JSX.Element => {
                 <div className={styles["due-today-card"]}>
                     <h2>Today</h2>
                     <ul className={styles["due-list"]}>
-                            <DueItem
-                                name="Tideman"
-                                subject="CS50"
-                                status={0}
-                                date={new Date(2021, 8, 10, 14, 20)}
-                                today={true}
-                             />
+                        <DueItem
+                            name="Tideman"
+                            subject="CS50"
+                            status={0}
+                            date={new Date(2021, 8, 10, 14, 20)}
+                            today={true}
+                            />
                     </ul>
                 </div>
             </div>
