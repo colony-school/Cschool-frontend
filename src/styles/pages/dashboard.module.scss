@@ -179,7 +179,6 @@
         display: flex;
         flex-direction: column;
         gap: 0.3rem;
-        padding: 0.3rem;
         list-style: none;
     }
     &-item {
@@ -203,16 +202,12 @@
             justify-content: space-between;
             align-items: center;
         }
-        &-status {
-            @include cc.card-pill(p.$failure, false);
-            color: p.$text-secondary;
-            padding: 0.1rem 0.8rem;
-        }
     }
 }
-// 
+
 .due-later, .due-today {
     &-card {
         @include cc.card(p.$card, false);
+        padding: 0.3rem;
     }
 }

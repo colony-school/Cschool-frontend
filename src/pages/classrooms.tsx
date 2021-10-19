@@ -1,5 +1,6 @@
 // External modules import
 import type { NextPage } from "next";
+import Link from "next/link";
 
 // Style sheet import
 import styles from "../styles/pages/classrooms.module.scss";
@@ -17,7 +18,9 @@ const Classrooms: NextPage = () => {
                 <h2 className={styles["grade"]}>M.1</h2>
                 <div className={styles["program-container"]}>
                     <h3 className={styles["program"]}>E-Plus</h3>
-                    <span className={styles["classes"]}>404</span>
+                    <Link href="/classroom/1/404">
+                        <a className={styles["classes"]}>404</a>
+                    </Link>
                 </div>
             </div>
         </section>

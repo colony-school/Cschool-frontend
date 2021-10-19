@@ -143,16 +143,26 @@ const SchoolAnnouncements = (): JSX.Element => {
  * A minified to-do list for the Dashboard
  */
 const DueSoon = (): JSX.Element => {
-    const DueItem = (): JSX.Element => {
+    type DueItemProps = {
+        name: string,
+        subject: string,
+        status: number,
+        date: Date,
+        today: boolean
+    }
+    const DueItem = ({ name, subject, status, date, today }: DueItemProps): JSX.Element => {
         return (
             <li className={styles["due-item"]}>
                 <div className={styles["due-item-title"]}>
-                    <span className={styles["due-item-name"]}>Tideman</span>
-                    <span className={styles["due-item-subj"]}>CS50</span>
+                    <span className={styles["due-item-name"]}>{name}</span>
+                    <span className={styles["due-item-subj"]}>{subject}</span>
                 </div>
                 <div className={styles["due-item-due"]}>
-                    <span className={styles["due-item-date"]}>06/10/2021</span>
-                    <Status status={0} />
+                    <time className={styles["due-item-date"]}>{
+                        today ? date.toLocaleTimeString("en-GB", { hour: '2-digit', minute: '2-digit' })
+                        : date.toLocaleDateString("en-GB")
+                    }</time>
+                    <Status status={status} />
                 </div>
             </li>
         );
@@ -165,17 +175,40 @@ const DueSoon = (): JSX.Element => {
                     <h1 className={styles["header"]}>Due Soon</h1>
                     <div className={styles["due-later-card"]}>
                         <ul className={styles["due-list"]}>
-                            <DueItem />
-                            <DueItem />
-                            <DueItem />
+                            <DueItem
+                                name="Tideman"
+                                subject="CS50"
+                                status={2}
+                                date={new Date(2021, 10, 6)}
+                                today={false}
+                            />
+                            <DueItem
+                                name="Page 169-420"
+                                subject="Addi M."
+                                status={0}
+                                date={new Date(2021, 10, 8)}
+                                today={false}
+                            />
+                            <DueItem
+                                name="Suicide"
+                                subject="Guidance"
+                                status={1}
+                                date={new Date(2021, 10, 12)}
+                                today={false}
+                            />
                         </ul>
                     </div>
                 </div>
                 <div className={styles["due-today-card"]}>
                     <h2>Today</h2>
                     <ul className={styles["due-list"]}>
-                        <DueItem />
-                        <DueItem />
+                            <DueItem
+                                name="Tideman"
+                                subject="CS50"
+                                status={0}
+                                date={new Date(2021, 8, 10, 14, 20)}
+                                today={true}
+                             />
                     </ul>
                 </div>
             </div>

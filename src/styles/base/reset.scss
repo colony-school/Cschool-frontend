@@ -1,7 +1,6 @@
 html {
     font-size: 24px;
     font-family: "Inter";
-    // background: #F0F0F0;
 }
 
 canvas, caption, center, cite, code, dd, del, dfn, div, dl, dt, em, embed, fieldset, font, form, h1, h2, h3, h4, h5, h6, hr, body, i, iframe,
@@ -15,4 +14,10 @@ th, thead, tr, tt, u, ul, var {
 
 a {
     text-decoration: none;
+}
+
+@media only screen and (max-width: 1600px) {
+    html {
+        font-size: 20px;
+    }
 }

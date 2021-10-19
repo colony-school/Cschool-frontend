@@ -23,7 +23,7 @@
 
 .program-container {
     display: grid;
-    grid-template-columns: 1rem, auto;
+    grid-template-columns: 6rem auto;
     grid-template-areas: 
         "program classes";
 }
@@ -31,14 +31,16 @@
 .program {
     grid-area: program;
     font-weight: 300;
+    width: fit-content;
 }
 
 .classes {
     grid-area: classes;
     @include cc.card-pill(p.$card);
+    display: inline;
     padding: 0.1rem 0.3rem;
     text-align: center;
-    display: inline;
     width: 3rem;
+    color: p.$text-primary;
 }
 

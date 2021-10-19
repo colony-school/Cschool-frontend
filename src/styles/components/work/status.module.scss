@@ -5,6 +5,7 @@
     color: p.$text-secondary;
     font-size: 0.8rem;
     padding: 0.1rem 0.5rem;
+    height: 1rem;
     &-0 {
         @extend .status;
         @include cc.card-pill(p.$icon-secondary, false);
