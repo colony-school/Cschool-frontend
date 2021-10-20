@@ -15,8 +15,8 @@ export const Menu = ({ pages }: MenuProps): JSX.Element => {
     return (
         <div className={styles["menu-container"]}>
             <div className={styles["menu"]}>
-                <div className={styles["menu-logo"]}>
-                    <Image src={logo} alt="Colony School logo" />
+                <div className={styles["logo"]}>
+                    <Image src={logo} alt="Colony School logo" layout="fill" />
                 </div>
                 <nav className={styles["menu-link-container"]}>
                     {pages.map(page => (
