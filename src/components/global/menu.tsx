@@ -6,7 +6,7 @@ import Image from "next/image";
 import styles from "../../styles/components/layout/menu.module.scss";
 
 // Photos import
-import logo from "../../../public/photos/logo.svg";
+import logo from "../../../public/pictures/logo.svg";
 
 interface MenuProps {
     pages: Array<{ name: string, url: string }>
