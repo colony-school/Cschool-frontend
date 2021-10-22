@@ -29,7 +29,7 @@ const Schedule = ({ schedule }: ScheduleProps) => {
     const days: Array<string> = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"];
 
     return (
-        <section className={`${styles["schedule"]} ${scheduleStyles["schedule"]}`}>
+        <section className={styles["schedule"]}>
             <div className={scheduleStyles["schedule"]}>{
                 schedule.map((row, index) => (
                     <div className={scheduleStyles["row"]}>
@@ -47,7 +47,7 @@ const Schedule = ({ schedule }: ScheduleProps) => {
 
 const SchedulePage: NextPage = () => {
     return (
-        <main>
+        <main className={styles["main"]}>
             <Schedule schedule={[
                 [
                     { name: "Meeting", teacher: "", periodStart: 1 },
