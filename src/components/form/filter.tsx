@@ -25,7 +25,7 @@ export const Filter = (): JSX.Element => {
             <div className={styles["item"]}>
                 <label className={styles["item-label"]}>Text</label>
                 <div className={styles["item-input"]}>
-                    <input className={styles["item-text"]} />
+                    <input type="text" className={styles["item-text"]} />
                 </div>
             </div>
         </div>
