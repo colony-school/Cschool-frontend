@@ -1,5 +1,6 @@
 // External modules import
 import { NextPage } from "next";
+import dayjs from "dayjs";
 
 // Internal modules import
 import { Filter } from "../components/form/filter";
@@ -7,11 +8,14 @@ import { Filter } from "../components/form/filter";
 // Style sheets import
 import styles from "../styles/pages/schedule.module.scss";
 import scheduleStyles from "../styles/components/form/schedule.module.scss";
+import { useRouter } from "next/router";
 
 type ScheduleProps = {
     schedule: Array<Array<{ name: string, teacher: string, periodStart: number, duration?: number, isBlank?: boolean }>>
 }
 const Schedule = ({ schedule }: ScheduleProps) => {
+    const router = useRouter();
+
     type RowProps = {
         row: Array<{ name: string, teacher: string, periodStart: number, duration?: number, isBlank?: boolean }>
     }
@@ -38,7 +42,7 @@ const Schedule = ({ schedule }: ScheduleProps) => {
                     <div className={scheduleStyles["row"]}>
                         <div className={scheduleStyles["day"]}>
                             <h2 className={scheduleStyles["day-name"]}>{days[index]}</h2>
-                            <time className={scheduleStyles["day-date"]}>18/10/2021</time>
+                            <time className={scheduleStyles["day-date"]}>{dayjs().day(index).toDate().toLocaleDateString(router.locale)}</time>
                         </div>
                         <PeriodRow row={row} />
                     </div>
@@ -46,6 +50,24 @@ const Schedule = ({ schedule }: ScheduleProps) => {
             }</div>
         </section>
     );
+}
+
+const PeriodDetails = (): JSX.Element => {
+    return (
+        <section className={styles["details"]}>
+            <div className={styles["details-class"]}>
+                <h1>Chemistry</h1>
+                <p>Thanthapatra</p>
+                <time>08:30-10:10</time>
+            </div>
+            <div className={styles["details-related"]}>
+                <h2>Related Posts</h2>
+            </div>
+            <div className={styles["details-due"]}>
+                <h2>Due This Period</h2>
+            </div>
+        </section>
+    )
 }
 
 const SchedulePage: NextPage = () => {
@@ -95,6 +117,9 @@ const SchedulePage: NextPage = () => {
                     { name: "", teacher: "", periodStart: 8, duration: 2 },
                 ]
             ]} />
+            <div className={styles["details-container"]}>
+                <PeriodDetails />
+            </div>
         </main>
     );
 }
