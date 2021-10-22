@@ -23,7 +23,7 @@ const Schedule = ({ schedule }: ScheduleProps) => {
         return (
             <div className={scheduleStyles["row-class"]}>{
                 row.map(period => (
-                    <div className={`${scheduleStyles["class"]} ${period.isBlank ? scheduleStyles[`class-${period.isBlank}`] : null}`}
+                    <div key={period.periodStart} className={`${scheduleStyles["class"]} ${period.isBlank ? scheduleStyles[`class-${period.isBlank}`] : null}`}
                         style={{ gridColumn: `${period.periodStart} / span ${period.duration || 1}` }}>
                         <h3 className={scheduleStyles["class-name"]}>{period.name}</h3>
                         <p className={scheduleStyles["class-teacher"]}>{period.teacher}</p>
