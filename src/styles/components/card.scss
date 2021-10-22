@@ -1,0 +1,20 @@
+@use "../abstracts/palette.scss" as p;
+@use "../abstracts/sizes.scss" as s;
+
+@mixin card($background: p.$secondary, $has-side: true) {
+    @if ($has-side) {
+        box-shadow: 0 0.2rem 0 p.$side;
+    }
+    background: $background;
+    border-radius: s.$border-radius;
+    // background: #FFFFFF;
+    // border: 0.075rem solid #000000;
+}
+
+@mixin card-pill($background, $has-side: true) {
+    @if ($has-side) {
+        box-shadow: 0 0.2rem 0 p.$side;
+    }
+    background: $background;
+    border-radius: 2rem;
+}

@@ -1,0 +1,62 @@
+@use "../abstracts/palette.scss" as p;
+@use "../abstracts/sizes.scss" as s;
+@use "../components/card.scss" as cc;
+
+.dropdown {
+    @include cc.card-white();
+    position: relative;
+    top: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    width: calc(100% - 0.5rem);
+    margin: 0 -8rem -5.3rem 0;
+    padding: 0.3rem;
+    z-index: 7;
+    &-scroll-area {
+        height: 4.7rem;
+        padding-right: 0.3rem;
+        overflow: hidden scroll;
+    }
+}
+
+.dropdown-trigger {
+    @include cc.card-white();
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    height: 2rem;
+    padding: 0.5rem;
+    font-size: 0.8rem;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+
+.option {
+    @include cc.card-flat(transparent);
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+    height: 1.45rem;
+    margin: 0.1em 0;
+    padding: 0 0.5em;
+    font-size: 0.8rem;
+    border: none;
+    span {
+        text-align: left;
+    }
+    &-false {
+        @extend .option;
+        &:hover {
+            background: p.$secondary;
+        }
+    }
+    &-true {
+        @extend .option;
+        background: p.$secondary;
+        &:hover {
+            opacity: 80%;
+        }
+    }
+}

@@ -1,0 +1,21 @@
+@use "../../abstracts/palette.scss" as p;
+@use "../card.scss" as cc;
+
+.status {
+    color: p.$text-secondary;
+    font-size: 0.8rem;
+    padding: 0.1rem 0.5rem;
+    height: 1rem;
+    &-0 {
+        @extend .status;
+        @include cc.card-pill(p.$icon-secondary, false);
+    }
+    &-1 {
+        @extend .status;
+        @include cc.card-pill(p.$success, false);
+    }
+    &-2 {
+        @extend .status;
+        @include cc.card-pill(p.$failure, false);
+    }
+}

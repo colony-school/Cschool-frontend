@@ -1,0 +1,35 @@
+@use "../../abstracts/palette.scss" as p;
+@use "../../abstracts/sizes.scss" as s;
+
+.menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 2rem;
+    padding: 0 2rem;
+    gap: 3rem;
+    border-radius: 0 0 s.$border-radius s.$border-radius;
+    background: p.$menu;
+    &-container {
+        display: flex;
+        justify-content: center;
+        position: fixed;
+        width: 100vw;
+        z-index: 8;
+    }
+}
+
+.logo {
+    position: relative;
+    width: 4rem;
+    height: 2rem;
+}
+
+.menu-link-container {
+    display: flex;
+    gap: 2rem;
+}
+
+.item {
+    color: p.$text-secondary;
+}
