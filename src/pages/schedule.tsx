@@ -2,6 +2,9 @@
 import { NextPage } from "next";
 
 // Internal modules import
+import { Filter } from "../components/form/filter";
+
+// Style sheets import
 import styles from "../styles/pages/schedule.module.scss";
 import scheduleStyles from "../styles/components/form/schedule.module.scss";
 
@@ -48,6 +51,9 @@ const Schedule = ({ schedule }: ScheduleProps) => {
 const SchedulePage: NextPage = () => {
     return (
         <main className={styles["main"]}>
+            <section className={styles["filter"]}>
+                <Filter />
+            </section>
             <Schedule schedule={[
                 [
                     { name: "Meeting", teacher: "", periodStart: 1 },

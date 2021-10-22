@@ -3,7 +3,7 @@
 @use "../components/card.scss" as cc;
 
 .dropdown {
-    @include cc.card-white();
+    @include cc.card(p.$card);
     position: relative;
     top: 0.5rem;
     display: flex;
@@ -20,12 +20,13 @@
 }
 
 .dropdown-trigger {
-    @include cc.card-white();
+    @include cc.card-pill(p.$card);
     display: flex;
     justify-content: space-between;
+    align-items: center;
     width: 100%;
-    height: 2rem;
-    padding: 0.5rem;
+    padding: 0 0.6rem;
+    height: 1.5rem;
     font-size: 0.8rem;
     border: none;
     outline: none;
@@ -33,7 +34,7 @@
 }
 
 .option {
-    @include cc.card-flat(transparent);
+    @include cc.card(transparent, false);
     display: flex;
     align-items: center;
     justify-content: flex-start;
