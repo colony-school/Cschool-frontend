@@ -1,0 +1,28 @@
+@use "../../abstracts/palette.scss" as p;
+@use "../card.scss" as cc;
+
+.filter {
+    @include cc.card-primary();
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.3rem 0.6rem;
+    border-radius: 1.5rem;
+}
+
+.item {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.3rem;
+    &-label {
+        font-size: 0.9rem;
+    }
+    &-input {
+        width: 8rem;
+    }
+    &-text {
+        width: 6.8rem;
+    }
+}

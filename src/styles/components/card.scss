@@ -11,6 +11,13 @@
     // border: 0.075rem solid #000000;
 }
 
+@mixin card-primary() {
+    color: p.$text-secondary;
+    box-shadow: 0 0.2rem 0 p.$primary-side;
+    background: p.$primary;
+    border-radius: s.$border-radius;
+}
+
 @mixin card-pill($background, $has-side: true) {
     @if ($has-side) {
         box-shadow: 0 0.2rem 0 p.$side;

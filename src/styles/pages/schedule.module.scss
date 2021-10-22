@@ -2,6 +2,11 @@
     width: 100vw;
 }
 
+.filter {
+    display: flex;
+    justify-content: center;
+}
+
 .schedule {
     width: calc(100vw - 2rem);
     height: 17.75rem;
