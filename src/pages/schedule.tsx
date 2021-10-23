@@ -11,19 +11,19 @@ import scheduleStyles from "../styles/components/form/schedule.module.scss";
 import { useRouter } from "next/router";
 
 type ScheduleProps = {
-    schedule: Array<Array<{ name: string, teacher: string, periodStart: number, duration?: number, isBlank?: boolean }>>
+    schedule: Array<Array<{ name: string, teacher: string, periodStart: number, duration?: number }>>
 }
 const Schedule = ({ schedule }: ScheduleProps) => {
     const router = useRouter();
 
     type RowProps = {
-        row: Array<{ name: string, teacher: string, periodStart: number, duration?: number, isBlank?: boolean }>
+        row: Array<{ name: string, teacher: string, periodStart: number, duration?: number }>
     }
     const PeriodRow = ({ row }: RowProps) => {
         return (
             <div className={scheduleStyles["row-class"]}>{
                 row.map(period => (
-                    <div key={period.periodStart} className={`${scheduleStyles["class"]} ${period.isBlank ? scheduleStyles[`class-${period.isBlank}`] : null}`}
+                    <div key={period.periodStart} className={scheduleStyles["class"]}
                         style={{ gridColumn: `${period.periodStart} / span ${period.duration || 1}` }}>
                         <h3 className={scheduleStyles["class-name"]}>{period.name}</h3>
                         <p className={scheduleStyles["class-teacher"]}>{period.teacher}</p>
@@ -71,17 +71,36 @@ const PeriodDetails = (): JSX.Element => {
 }
 
 const SchedulePage: NextPage = () => {
+    const router = useRouter();
+
     return (
         <main className={styles["main"]}>
             <section className={styles["filter"]}>
-                <Filter />
+                <Filter items={[
+                    { type: "dropdown", label: "Class", list: [
+                        { id: 401, text: "401" },
+                        { id: 402, text: "402" },
+                        { id: 403, text: "403" },
+                        { id: 404, text: "404" },
+                        { id: 405, text: "405" },
+                        { id: 406, text: "406" },
+                        { id: 407, text: "407" },
+                        { id: 408, text: "408" },
+                        { id: 409, text: "409" },
+                        { id: 410, text: "410" },
+                        { id: 411, text: "411" }
+                    ], startsAs: 404, onChange: ((e: number) => router.push(`/schedule?class=${e}&term=${router.query.term}`)) },
+                    { type: "dropdown", label: "Term", list: [
+                        { id: 20211, text: "1/2021" },
+                        { id: 20212, text: "2/2021" }
+                    ], startsAs: 20211, onChange: ((e: number) => router.push(`/schedule?class=${router.query.class}&term=${e}`)) }
+                ]} />
             </section>
             <Schedule schedule={[
                 [
                     { name: "Meeting", teacher: "", periodStart: 1 },
                     { name: "Chem.", teacher: "Thanthapatra", periodStart: 2 },
                     { name: "Core Maths", teacher: "Kritchapon", periodStart: 3, duration: 2 },
-                    { name: "", teacher: "", periodStart: 5, isBlank: true },
                     { name: "Thai", teacher: "Usa", periodStart: 6 },
                     { name: "Eng.", teacher: "Richard", periodStart: 7 },
                     { name: "Addi M.", teacher: "Krissada", periodStart: 8 },
@@ -105,16 +124,16 @@ const SchedulePage: NextPage = () => {
                     { name: "Communication", teacher: "Richards", periodStart: 8, duration: 2 },
                 ],
                 [
-                    { name: "", teacher: "", periodStart: 1 },
-                    { name: "", teacher: "", periodStart: 2 },
-                    { name: "", teacher: "", periodStart: 3 },
+                    { name: "Football", teacher: "Sakariya", periodStart: 1 },
+                    { name: "Biology", teacher: "Thanakorn", periodStart: 2 },
+                    { name: "Thai", teacher: "Usa", periodStart: 3 },
                 ],
                 [
-                    { name: "", teacher: "", periodStart: 1 },
-                    { name: "", teacher: "", periodStart: 2 },
-                    { name: "", teacher: "", periodStart: 3, duration: 2 },
-                    { name: "", teacher: "", periodStart: 6, duration: 2 },
-                    { name: "", teacher: "", periodStart: 8, duration: 2 },
+                    { name: "Art", teacher: "Leelawadee", periodStart: 1 },
+                    { name: "Social", teacher: "Thanungarn", periodStart: 2 },
+                    { name: "English IA", teacher: "Choksarun", periodStart: 3, duration: 2 },
+                    { name: "Biology", teacher: "Thanakorn", periodStart: 6, duration: 2 },
+                    { name: "Addi Maths", teacher: "Krissada", periodStart: 8, duration: 2 },
                 ]
             ]} />
             <div className={styles["details-container"]}>

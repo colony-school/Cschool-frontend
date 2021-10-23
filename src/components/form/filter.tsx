@@ -2,32 +2,36 @@
 import styles from "../../styles/components/form/filter.module.scss";
 import { Dropdown } from "./dropdown";
 
+type FilterProps = {
+    items: Array<{
+        type: string,
+        label: string,
+        list?: Array<{ id: number, text: string }>
+        startsAs?: number
+        onChange: any
+    }>
+}
+
 /**
  * The blue filter at the top of pages that reacts to changes
  */
-export const Filter = (): JSX.Element => {
+export const Filter = ({ items }: FilterProps): JSX.Element => {
     return (
         <div className={styles["filter"]}>
-            <div className={styles["item"]}>
-                <label className={styles["item-label"]}>Dropdown</label>
-                <div className={styles["item-input"]}>
-                    <Dropdown
-                        list={[
-                            { id: 0, text: "Hello" },
-                            { id: 1, text: "World" },
-                            { id: 2, text: "Jimmy" }
-                        ]}
-                        startsAs={0}
-                        onChange={() => console.log("hi")}
-                    />
-                </div>
-            </div>
-            <div className={styles["item"]}>
-                <label className={styles["item-label"]}>Text</label>
-                <div className={styles["item-input"]}>
-                    <input type="text" className={styles["item-text"]} />
-                </div>
-            </div>
+            <div className={styles["item"]}>{
+                items.map((item) => (
+                    <>
+                        <label className={styles["item-label"]}>
+                            {item.label}
+                        </label>
+                        <div className={styles["item-input"]}>{
+                            item.type == "dropdown"
+                            ? <Dropdown list={item.list || []} startsAs={item.startsAs || 0} onChange={item.onChange} />
+                            : <input type={item.type} onChange={item.onChange} />
+                        }</div>
+                    </>
+                ))
+            }</div>
         </div>
     );
 }

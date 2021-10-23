@@ -56,9 +56,8 @@ export const Dropdown = ({ list, startsAs, onChange }: DropdownProps): JSX.Eleme
     function handleChange(event: ListItem) {
         setCurrent(event);
         setDroppedDown(false);
+        return onChange(event.id);
     }
-
-    useEffect(() => onChange(current.id));
     
     return (
         <>
