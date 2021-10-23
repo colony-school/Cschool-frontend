@@ -3,6 +3,8 @@
 html {
     font-size: 24px;
     font-family: t.$font-base;
+    width: 100vw;
+    overflow: hidden auto;
 }
 
 canvas, caption, center, cite, code, dd, del, dfn, div, dl, dt, em, embed, fieldset, font, form, h1, h2, h3, h4, h5, h6, hr, body, i, iframe,

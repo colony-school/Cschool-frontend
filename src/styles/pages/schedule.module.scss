@@ -1,0 +1,42 @@
+@use "../abstracts/sizes.scss" as s;
+@use "../abstracts/palette.scss" as p;
+@use "../components/card.scss" as cc;
+
+.main {
+    width: 100vw;
+    min-height: calc(100vh - 2.5rem);
+}
+
+.filter {
+    display: flex;
+    justify-content: center;
+}
+
+.schedule {
+    width: calc(100vw - 2rem);
+    height: 17.75rem;
+    padding: 1rem;
+    overflow: auto;
+}
+
+.details {
+    @include cc.card();
+    display: grid;
+    grid-template-columns: 3fr 3fr 4fr;
+    gap: 0.6rem;
+    width: calc(100vw - 20rem);
+    border-radius: s.$border-radius s.$border-radius 0 0;
+    padding: 0.6rem;
+    &-container {
+        display: flex;
+        justify-content: center;
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+    }
+    &-related, &-due {
+        @include cc.card(p.$card, false);
+        height: 9rem;
+        padding: 0.3rem;
+    }
+}
