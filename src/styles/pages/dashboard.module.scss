@@ -1,19 +1,23 @@
 @use "../abstracts/palette.scss" as p;
 @use "../components/button.scss" as cb;
 @use "../components/card.scss" as cc;
+@use "../layout/split.scss" as ls;
 @use "../utils/typography.scss" as ut;
 
 .dashboard {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1rem;
-    width: calc(100vw - 20rem);
-    min-width: 48rem;
+    @include ls.split-horizontal(2, 1rem);
     padding: 0 1rem 1rem 1rem;
     &-column {
         display: flex;
         flex-direction: column;
         gap: 1rem;
+    }
+}
+
+@media only screen and (orientation: landscape) {
+    .dashboard {
+        width: calc(100vw - 20rem);
+        min-width: 48rem;
     }
 }
 

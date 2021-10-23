@@ -1,0 +1,11 @@
+@mixin split-horizontal($columns: 2, $gap: 0) {
+    gap: $gap;
+    @media only screen and (orientation: portrait) {
+        display: flex;
+        flex-direction: column;
+    }
+    @media only screen and (orientation: landscape) {
+        display: grid;
+        grid-template-columns: repeat($columns, 1fr);
+    }
+}
