@@ -11,6 +11,8 @@
 .card {
     @include cc.card();
     padding: 0.6rem;
+    height: calc(100vh - 4.5rem);
+    overflow: hidden auto;
     &-inner {
         @include cc.card(p.$card);
         padding: 0.6rem;
@@ -60,5 +62,8 @@
         &-button-secondary {
             @include cb.button(p.$accent, p.$text-secondary, 1rem);
         }
+    }
+    &-related {
+        @extend .card-inner;
     }
 }

@@ -1,6 +1,7 @@
 // External modules import
 import { NextPage } from "next";
 import { MouseEventHandler } from "react";
+import { RelatedPost } from "../components/related/related-post";
 
 // Internal modules import
 import { DueItem } from "../components/work/due-item";
@@ -93,6 +94,9 @@ const AssgDesc = () => {
                 { text: "Compose Post", onClick: () => { console.log("Create Post!") }, main: false },
                 { text: "Mark as started", onClick: () => { console.log("Started!") }, main: true }
             ]} />
+            <div className={styles["main-related"]}>
+                <RelatedPost />
+            </div>
         </section>
     );
 }
