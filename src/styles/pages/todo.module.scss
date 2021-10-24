@@ -1,4 +1,5 @@
 @use "../abstracts/palette.scss" as p;
+@use "../components/button.scss" as cb;
 @use "../components/card.scss" as cc;
 @use "../layout/split.scss" as ls;
 
@@ -45,6 +46,19 @@
         gap: 0.3rem;
         &-date {
             font-weight: 800;
+        }
+    }
+    &-actions {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 0.15rem;
+        justify-content: flex-end;
+        &-button-primary {
+            @include cb.button(p.$primary, p.$text-secondary, 1rem);
+        }
+        &-button-secondary {
+            @include cb.button(p.$accent, p.$text-secondary, 1rem);
         }
     }
 }

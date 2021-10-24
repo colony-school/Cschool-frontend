@@ -1,5 +1,6 @@
 // External modules import
 import { NextPage } from "next";
+import { MouseEventHandler } from "react";
 
 // Internal modules import
 import { DueItem } from "../components/work/due-item";
@@ -46,7 +47,15 @@ const ToDoList = (): JSX.Element => {
  * The description of the selected assignment
  */
 const AssgDesc = () => {
-    const DueDate = () => {
+    // Types
+    type AssgActionsProps = {
+        actions: Array<{ text: string, onClick: MouseEventHandler<HTMLButtonElement>, main: boolean }>
+    }
+
+    /**
+     * The due date and the countdown of the assignment
+     */
+    const AssgDueDate = () => {
         return (
             <div className={styles["main-due"]}>
                 <span className={styles["main-due-date"]}>Due: Sep 14, 11:59 PM</span>
@@ -55,14 +64,35 @@ const AssgDesc = () => {
         );
     }
 
+    /**
+     * Draws buttons based on the given actions
+     * @param actions A list of actions; each comprises of the display text (text) and the function that triggers once the button is clicked (onClick)
+     */
+    const AssgActions = ({ actions }: AssgActionsProps) => {
+        return (
+            <div className={styles["main-actions"]}>{
+                actions.map(action => (
+                    <button className={styles[`main-actions-button-${action.main ? "primary" : "secondary"}`]} onClick={action.onClick}>
+                        {action.text}
+                    </button>
+                ))
+            }</div>
+        );
+    }
+
     return (
         <section className={styles["main-card"]}>
             <h1>Tideman</h1>
-            <DueDate />
+            <AssgDueDate />
             <div className={markdownStyles["markdown"]}>
                 <p>The Tideman voting method (also known as “ranked pairs”) is a ranked-choice voting method that’s guaranteed to produce the Condorcet winner of the election if one exists.</p>
                 <p>Generally speaking, the Tideman method works by constructing a “graph” of candidates, where an arrow (i.e. edge) from candidate A to candidate B indicates that candidate A wins against candidate B in a head-to-head matchup.</p>
             </div>
+            <AssgActions actions={[
+                { text: "See in GCR", onClick: () => { console.log("See in GCR") }, main: false },
+                { text: "Compose Post", onClick: () => { console.log("Create Post!") }, main: false },
+                { text: "Mark as started", onClick: () => { console.log("Started!") }, main: true }
+            ]} />
         </section>
     );
 }
