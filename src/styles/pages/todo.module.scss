@@ -1,3 +1,4 @@
+@use "../abstracts/palette.scss" as p;
 @use "../components/card.scss" as cc;
 @use "../layout/split.scss" as ls;
 
@@ -14,6 +15,15 @@
 .todo {
     &-card {
         @extend .card;
+        display: flex;
+        flex-direction: column;
+        gap: 0.3rem;
+    }
+    &-list {
+        display: flex;
+        flex-direction: column;
+        gap: 0.3rem;
+        list-style: none;
     }
 }
 
