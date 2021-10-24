@@ -14,7 +14,7 @@
     }
 }
 
-@mixin split-horizontal-uneven-2($left: 1fr, $right: 1fr) {
+@mixin split-horizontal-uneven-2($left: 1fr, $right: 1fr, $gap: 0) {
     @include flex-vertical();
     gap: $gap;
     @media only screen and (orientation: landscape) {
@@ -23,7 +23,7 @@
     }
 }
 
-@mixin split-horizontal-uneven-3($left: 1fr, $middle: 1fr, $right: 1fr) {
+@mixin split-horizontal-uneven-3($left: 1fr, $middle: 1fr, $right: 1fr, $gap: 0) {
     @include flex-vertical();
     gap: $gap;
     @media only screen and (orientation: landscape) {

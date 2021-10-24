@@ -1,0 +1,24 @@
+@use "../components/card.scss" as cc;
+@use "../layout/split.scss" as ls;
+
+.grid {
+    @include ls.split-horizontal-uneven-2(1fr, 2fr, 0.6rem);
+    width: calc(100vw - 20rem);
+}
+
+.card {
+    @include cc.card();
+    padding: 0.6rem;
+}
+
+.todo {
+    &-card {
+        @extend .card;
+    }
+}
+
+.main {
+    &-card {
+        @extend .card;
+    }
+}

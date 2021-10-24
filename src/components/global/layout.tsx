@@ -27,7 +27,7 @@ export const Layout = ({ children }: LayoutProps): JSX.Element  => {
                 {name: "Dashboard", url: "/"},
                 {name: "Events", url: "/events"},
                 {name: "Subjects", url: "/schedule?school=1&class=405"},
-                {name: "To-do", url: "/to-do"},
+                {name: "To-do", url: "/todo"},
                 {name: "Classrooms", url: "/classrooms?school=1&class=405"}
             ]} />
             <motion.main

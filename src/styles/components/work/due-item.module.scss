@@ -1,0 +1,24 @@
+@use "../../abstracts/palette.scss" as p;
+
+.due-item {
+    padding: 0.2rem 0;
+    border-bottom: 0.1rem solid p.$secondary;
+    &:last-child {
+        border: none;
+    }
+    &-title {
+        display: flex;
+        gap: 0.2rem;
+    }
+    &-name {
+        font-weight: 800;
+    }
+    &-date {
+        font-size: 0.9rem;
+    }
+    &-due {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+}
