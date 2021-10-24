@@ -13,12 +13,12 @@ type DueItemProps = {
 }
 
 /**
- * 
- * @param name 
- * @param subject 
- * @param status 
- * @param date 
- * @param today 
+ * An item in a list of assignments
+ * @param name The name of the assignment
+ * @param subject The assignment's subject name
+ * @param status The status code of the assignment (0: not started, 1: started, 2: past due)
+ * @param date The due date of the assignment
+ * @param today Whether if the assignment is due today
  */
 export const DueItem = ({ name, subject, status, date, today }: DueItemProps): JSX.Element => {
     return (
