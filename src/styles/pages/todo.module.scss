@@ -10,6 +10,10 @@
 .card {
     @include cc.card();
     padding: 0.6rem;
+    &-inner {
+        @include cc.card(p.$card);
+        padding: 0.6rem;
+    }
 }
 
 .todo {
@@ -30,5 +34,17 @@
 .main {
     &-card {
         @extend .card;
+        display: flex;
+        flex-direction: column;
+        gap: 0.9rem;
+    }
+    &-due {
+        @extend .card-inner;
+        display: flex;
+        flex-direction: row;
+        gap: 0.3rem;
+        &-date {
+            font-weight: 800;
+        }
     }
 }
