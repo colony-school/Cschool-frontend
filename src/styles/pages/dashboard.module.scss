@@ -1,19 +1,23 @@
 @use "../abstracts/palette.scss" as p;
 @use "../components/button.scss" as cb;
 @use "../components/card.scss" as cc;
+@use "../layout/split.scss" as ls;
 @use "../utils/typography.scss" as ut;
 
 .dashboard {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1rem;
-    width: calc(100vw - 20rem);
-    min-width: 48rem;
+    @include ls.split-horizontal(2, 1rem);
     padding: 0 1rem 1rem 1rem;
     &-column {
         display: flex;
         flex-direction: column;
         gap: 1rem;
+    }
+}
+
+@media only screen and (orientation: landscape) {
+    .dashboard {
+        width: calc(100vw - 20rem);
+        min-width: 48rem;
     }
 }
 
@@ -186,28 +190,6 @@
         flex-direction: column;
         gap: 0.3rem;
         list-style: none;
-    }
-    &-item {
-        padding: 0.2rem 0;
-        border-bottom: 0.1rem solid p.$secondary;
-        &:last-child {
-            border: none;
-        }
-        &-title {
-            display: flex;
-            gap: 0.2rem;
-        }
-        &-name {
-            font-weight: 800;
-        }
-        &-date {
-            font-size: 0.9rem;
-        }
-        &-due {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
     }
 }
 

@@ -1,0 +1,6 @@
+@use "../abstracts/palette.scss" as p;
+
+.markdown p {
+    color: p.$text-primary;
+    margin: 0.3rem 0;
+}

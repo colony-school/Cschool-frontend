@@ -1,0 +1,69 @@
+@use "../abstracts/palette.scss" as p;
+@use "../components/button.scss" as cb;
+@use "../components/card.scss" as cc;
+@use "../layout/split.scss" as ls;
+
+.grid {
+    @include ls.split-horizontal-uneven-2(1fr, 2fr, 0.6rem);
+    width: calc(100vw - 20rem);
+}
+
+.card {
+    @include cc.card();
+    padding: 0.6rem;
+    height: calc(100vh - 4.5rem);
+    overflow: hidden auto;
+    &-inner {
+        @include cc.card(p.$card);
+        padding: 0.6rem;
+    }
+}
+
+.todo {
+    &-card {
+        @extend .card;
+        display: flex;
+        flex-direction: column;
+        gap: 0.3rem;
+    }
+    &-list {
+        display: flex;
+        flex-direction: column;
+        gap: 0.3rem;
+        list-style: none;
+    }
+}
+
+.main {
+    &-card {
+        @extend .card;
+        display: flex;
+        flex-direction: column;
+        gap: 0.9rem;
+    }
+    &-due {
+        @extend .card-inner;
+        display: flex;
+        flex-direction: row;
+        gap: 0.3rem;
+        &-date {
+            font-weight: 800;
+        }
+    }
+    &-actions {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 0.15rem;
+        justify-content: flex-end;
+        &-button-primary {
+            @include cb.button(p.$primary, p.$text-secondary, 1rem);
+        }
+        &-button-secondary {
+            @include cb.button(p.$accent, p.$text-secondary, 1rem);
+        }
+    }
+    &-related {
+        @extend .card-inner;
+    }
+}

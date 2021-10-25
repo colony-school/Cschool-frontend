@@ -2,9 +2,11 @@
 import type { NextPage } from "next";
 import ProgressBar from "@ramonak/react-progress-bar";
 
+// Internal modules import
+import { DueItem } from "../components/work/due-item";
+
 // Style sheet import
 import styles from "../styles/pages/dashboard.module.scss";
-import { Status } from "../components/work/status";
 
 /**
  * The current class card
@@ -145,31 +147,6 @@ const SchoolAnnouncements = (): JSX.Element => {
  * A minified to-do list for the Dashboard
  */
 const DueSoon = (): JSX.Element => {
-    type DueItemProps = {
-        name: string,
-        subject: string,
-        status: number,
-        date: Date,
-        today: boolean
-    }
-    const DueItem = ({ name, subject, status, date, today }: DueItemProps): JSX.Element => {
-        return (
-            <li className={styles["due-item"]}>
-                <div className={styles["due-item-title"]}>
-                    <span className={styles["due-item-name"]}>{name}</span>
-                    <span className={styles["due-item-subj"]}>{subject}</span>
-                </div>
-                <div className={styles["due-item-due"]}>
-                    <time className={styles["due-item-date"]}>{
-                        today ? date.toLocaleTimeString("en-GB", { hour: '2-digit', minute: '2-digit' })
-                        : date.toLocaleDateString("en-GB")
-                    }</time>
-                    <Status status={status} />
-                </div>
-            </li>
-        );
-    }
-
     return (
         <section className={styles["due-card"]}>
             <div className={styles["due-content"]}>
