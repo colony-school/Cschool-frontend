@@ -1,5 +1,6 @@
 @use "../abstracts/palette.scss" as p;
 @use "../abstracts/sizes.scss" as s;
+@use "../base/animation.scss" as a;
 @use "../components/card.scss" as cc;
 
 .dropdown {
@@ -44,6 +45,9 @@
     padding: 0 0.5em;
     font-size: 0.8rem;
     border: none;
+    transition:
+        background-color a.$animation-speed,
+        opacity a.$animation-speed;
     span {
         text-align: left;
     }
