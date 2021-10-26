@@ -1,10 +1,12 @@
+// Internal modules import
+import { Dropdown } from "./dropdown";
+
 // Style sheets import
 import styles from "../../styles/components/form/filter.module.scss";
-import { Dropdown } from "./dropdown";
 
 type FilterProps = {
     items: Array<{
-        type: string,
+        type: "text" | "dropdown",
         label: string,
         list?: Array<{ id: number, text: string }>
         startsAs?: number
@@ -14,6 +16,7 @@ type FilterProps = {
 
 /**
  * The blue filter at the top of pages that reacts to changes
+ * @param items An array of items in the filter bar; each item includes type, label, and the onChange function; if the type is "dropdown" the item must also include list and the default startsAs
  */
 export const Filter = ({ items }: FilterProps): JSX.Element => {
     return (

@@ -1,0 +1,25 @@
+@use "../../abstracts/palette.scss" as p;
+@use "../../abstracts/sizes.scss" as s;
+@use "../../components/card.scss" as cc;
+@use "../../layout/bg-image.scss" as lb;
+
+.root {
+    padding: 0 0.9rem;
+}
+
+.header {
+    @include cc.card(#BFBFBF, false);
+    @include lb.bg-cover(url("/pictures/placeholders/banner.png"));
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-end;
+    height: 16rem;
+    width: calc(100vw - 2.7rem);
+    padding: 0.6rem;
+    &-card {
+        @include cc.card(p.$card-translucent, false);
+        width: 16rem;
+        padding: 0.6rem;
+        backdrop-filter: blur(0.6rem);
+    }
+}

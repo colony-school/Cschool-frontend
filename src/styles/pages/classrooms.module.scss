@@ -36,11 +36,13 @@
 
 .classes {
     grid-area: classes;
-    @include cc.card-pill(p.$card);
-    display: inline;
-    padding: 0.1rem 0.3rem;
-    text-align: center;
-    width: 3rem;
-    color: p.$text-primary;
+    .class-pill {
+        @include cc.card-pill(p.$card);
+        display: inline;
+        padding: 0.1rem 0.3rem;
+        text-align: center;
+        width: 3rem;
+        color: p.$text-primary;
+        margin: .5rem;
+    }
 }
-

@@ -1,0 +1,5 @@
+@mixin bg-cover($url, $x: center, $y: center) {
+    background-image: $url;
+    background-size: cover;
+    background-position: $x $y;
+}
