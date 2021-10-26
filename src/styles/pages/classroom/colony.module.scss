@@ -2,6 +2,7 @@
 @use "../../abstracts/sizes.scss" as s;
 @use "../../components/card.scss" as cc;
 @use "../../layout/bg-image.scss" as lb;
+@use "../../layout/split.scss" as ls;
 
 .root {
     padding: 0 0.9rem;
@@ -22,4 +23,8 @@
         padding: 0.6rem;
         backdrop-filter: blur(0.6rem);
     }
+}
+
+.split {
+    @include ls.split-horizontal-uneven-2(auto, calc(100vw - 20rem));
 }

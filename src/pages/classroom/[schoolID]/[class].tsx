@@ -15,10 +15,52 @@ const ClassroomHeader = (): JSX.Element => {
     );
 }
 
+const QuickInfo = (): JSX.Element => {
+    return (
+        <aside>
+            Quick info here
+        </aside>
+    );
+}
+
+const Compose = (): JSX.Element => {
+    return (
+        <div>
+            Compose
+        </div>
+    );
+}
+
+const PostFilter = (): JSX.Element => {
+    return (
+        <div>
+            Filter
+        </div>
+    );
+}
+
+const Feed = (): JSX.Element => {
+    return (
+        <main>
+            Feed
+        </main>
+    );
+}
+
 const Classroom: NextPage = () => {
     return (
         <div className={styles["root"]}>
             <ClassroomHeader />
+            <div className={styles["split"]}>
+                <QuickInfo />
+                <div>
+                    <section>
+                        <Compose />
+                        <PostFilter />
+                        <Feed />
+                    </section>
+                </div>
+            </div>
         </div>
     );
 }
