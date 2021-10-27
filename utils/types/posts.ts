@@ -18,3 +18,14 @@ export type AnnouncementPost = {
     type: "announcement",
     body: string
 }
+
+export type ProblemDiscussionPost = {
+    type: "problemDiscussion",
+    annotation: string,
+    question: string,
+    answers: Array<{
+        author: string,  // placeholder
+        votes: number,
+        body: string
+    }>
+}
