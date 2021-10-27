@@ -3,6 +3,11 @@ import { User } from "./user";
 
 export type Post = SharedFilePost | AnnouncementPost;
 
+export type AnnouncementPost = {
+    type: "announcement",
+    body: string
+}
+
 export type SharedFilePost = {
     type: "sharedFile",
     annotation: string,
@@ -13,11 +18,6 @@ export type SharedFilePost = {
         "noShare"?
     ],
     file: string
-}
-
-export type AnnouncementPost = {
-    type: "announcement",
-    body: string
 }
 
 export type ProblemDiscussionPost = {
