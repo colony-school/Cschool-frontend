@@ -1,6 +1,9 @@
 // External modules import
 import { NextPage } from "next";
 
+// Types import
+import { post } from "../../../../utils/types";
+
 // Style sheet import
 import styles from "../../../styles/pages/classroom/colony.module.scss";
 
@@ -39,11 +42,15 @@ const PostFilter = (): JSX.Element => {
     );
 }
 
-const Feed = (): JSX.Element => {
+const Feed = ({ feed }: { feed: Array<post.Post> }): JSX.Element => {
     return (
-        <main>
-            Feed
-        </main>
+        <main>{
+            feed.map(post => {
+                <article>
+                    Hi
+                </article>
+            })
+        }</main>
     );
 }
 
@@ -57,7 +64,9 @@ const Classroom: NextPage = () => {
                     <section>
                         <Compose />
                         <PostFilter />
-                        <Feed />
+                        <Feed feed={[
+
+                        ]} />
                     </section>
                 </div>
             </div>
