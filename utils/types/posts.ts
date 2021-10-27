@@ -1,4 +1,5 @@
 import { AssignmentProps } from "./assignment";
+import { User } from "./user";
 
 export type Post = SharedFilePost | AnnouncementPost;
 
@@ -24,7 +25,7 @@ export type ProblemDiscussionPost = {
     annotation: string,
     question: string,
     answers: Array<{
-        author: string,  // placeholder
+        author: User,
         votes: number,
         body: string
     }>
