@@ -1,11 +1,13 @@
 // External modules import
 import { NextPage } from "next";
+import ReactMarkdown from "react-markdown";
 
 // Types import
 import { post } from "../../../../utils/types";
 
 // Style sheet import
 import styles from "../../../styles/pages/classroom/colony.module.scss";
+import markdownStyles from "../../../styles/utils/markdown.module.scss";
 
 const ClassroomHeader = (): JSX.Element => {
     return (
@@ -20,7 +22,7 @@ const ClassroomHeader = (): JSX.Element => {
 
 const QuickInfo = (): JSX.Element => {
     return (
-        <aside>
+        <aside className={styles["quickinfo"]}>
             Quick info here
         </aside>
     );
@@ -28,7 +30,7 @@ const QuickInfo = (): JSX.Element => {
 
 const Compose = (): JSX.Element => {
     return (
-        <div>
+        <div className={styles["compose"]}>
             Compose
         </div>
     );
@@ -36,7 +38,7 @@ const Compose = (): JSX.Element => {
 
 const PostFilter = (): JSX.Element => {
     return (
-        <div>
+        <div className={styles["filter"]}>
             Filter
         </div>
     );
@@ -44,11 +46,29 @@ const PostFilter = (): JSX.Element => {
 
 const Feed = ({ feed }: { feed: Array<post.Post> }): JSX.Element => {
     return (
-        <main>{
+        <main className={styles["feed"]}>{
             feed.map(post => {
-                <article>
-                    Hi
-                </article>
+                if (post.type === "announcement") {
+                    return (
+                        <article className={`${styles["post"]} ${styles["post-announcement"]}`} key={post.id}>
+                            <span>Announcement</span>
+                            <div className={styles["post-content"]}>
+                                <ReactMarkdown className={markdownStyles["markdown"]}>
+                                    {post.body}
+                                </ReactMarkdown>
+                            </div>
+                        </article>
+                    );
+                } else if (post.type === "sharedFile") {
+                    return (
+                        <article className={styles["post"]} key={post.id}>
+                            <span>Shared File</span>
+                            <div className={styles["post-content"]}>
+                                <p>{post.annotation}</p>
+                            </div>
+                        </article>
+                    );
+                }
             })
         }</main>
     );
@@ -61,11 +81,27 @@ const Classroom: NextPage = () => {
             <div className={styles["split"]}>
                 <QuickInfo />
                 <div>
-                    <section>
+                    <section className={styles["content"]}>
                         <Compose />
                         <PostFilter />
                         <Feed feed={[
-
+                            {
+                                type: "announcement",
+                                id: "1",
+                                body: "# Breaking news: Jimmy Watches Porn"
+                            },
+                            {
+                                type: "sharedFile",
+                                id: "2",
+                                annotation: "Spent a lot of time one this. Use responsibly!",
+                                links: [],
+                                file: "https://firebasestorage.googleapis.com/v0/b/siravit-p.appspot.com/o/portfolio%2FEmocial.png?alt=media&token=040736c3-afba-4847-8b9f-a08363c9cc8d",
+                                usePolicies: {
+                                    "noParaphrase": false,
+                                    "noCopy": true,
+                                    "noShare": true
+                                }
+                            }
                         ]} />
                     </section>
                 </div>

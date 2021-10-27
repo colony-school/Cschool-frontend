@@ -4,12 +4,20 @@
 @use "../../layout/bg-image.scss" as lb;
 @use "../../layout/split.scss" as ls;
 
+.card {
+    @include cc.card(p.$secondary);
+    padding: 0.3rem;
+}
+
 .root {
-    padding: 0 0.9rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    padding: 0 0.9rem 0.9rem 0.9rem;
 }
 
 .header {
-    @include cc.card(#BFBFBF, false);
+    @include cc.card(p.$secondary, false);
     @include lb.bg-cover(url("/pictures/placeholders/banner.png"));
     display: flex;
     justify-content: flex-start;
@@ -26,5 +34,38 @@
 }
 
 .split {
-    @include ls.split-horizontal-uneven-2(auto, calc(100vw - 20rem));
+    @include ls.split-horizontal-uneven-2(auto, calc(100vw - 20rem), 0.6rem);
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+}
+
+.quickinfo {
+    @extend .card;
+    height: 16rem;  // temporary
+}
+
+.compose, .filter {
+    @include cc.card-primary();
+    padding: 0.3rem;
+}
+
+.feed {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+}
+
+.post {
+    @include cc.card(p.$secondary);
+    padding: 0.45rem;
+    &-content {
+        padding: 0.3rem 0.6rem 0.3rem 1.2rem;
+    }
+    &-announcement {
+        @extend .post;
+    }
 }

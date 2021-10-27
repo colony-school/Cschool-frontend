@@ -1,27 +1,30 @@
 import { AssignmentProps } from "./assignment";
 import { User } from "./user";
 
-export type Post = SharedFilePost | AnnouncementPost;
+export type Post = AnnouncementPost | ProblemDiscussionPost | SharedFilePost;
 
 export type AnnouncementPost = {
     type: "announcement",
+    id: string,
     body: string
 }
 
 export type SharedFilePost = {
     type: "sharedFile",
+    id: string,
     annotation: string,
     links: Array<AssignmentProps>,
-    usePolicies: [
-        "noParaphrase"?,
-        "noCopy"?,
-        "noShare"?
-    ],
+    usePolicies: {
+        "noParaphrase": boolean,
+        "noCopy": boolean,
+        "noShare": boolean
+    },
     file: string
 }
 
 export type ProblemDiscussionPost = {
     type: "problemDiscussion",
+    id: string,
     annotation: string,
     question: string,
     answers: Array<{
