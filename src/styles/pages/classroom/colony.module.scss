@@ -58,14 +58,3 @@
     flex-direction: column;
     gap: 0.6rem;
 }
-
-.post {
-    @include cc.card(p.$secondary);
-    padding: 0.45rem;
-    &-content {
-        padding: 0.3rem 0.6rem 0.3rem 1.2rem;
-    }
-    &-announcement {
-        @extend .post;
-    }
-}

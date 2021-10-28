@@ -1,0 +1,21 @@
+@use "../../abstracts/palette.scss" as p;
+@use "../card.scss" as cc;
+
+.post {
+    @include cc.card(p.$secondary);
+    padding: 0.3rem;
+    &-type {
+        display: flex;
+        align-items: center;
+    }
+    &-icon {
+        width: 2.1rem;
+        height: 2.1rem;
+    }
+    &-content {
+        padding: 0.3rem 0.6rem 0.3rem 2.1rem;
+    }
+    &-announcement {
+        @extend .post;
+    }
+}
