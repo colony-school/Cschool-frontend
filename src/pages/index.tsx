@@ -1,6 +1,5 @@
 // External modules import
 import type { NextPage } from "next";
-import ProgressBar from "@ramonak/react-progress-bar";
 
 // Internal modules import
 import { DueItem } from "../components/work/due-item";
@@ -20,8 +19,8 @@ const CurrentClass = (): JSX.Element => {
                 <p className={styles["class-teacher"]}>T. Smart Wattanapornmongkol</p>
                 <p className={styles["class-no-assgn"]}>2 assignments due</p>
                 <div className={styles["class-time"]}>
-                    <p className={styles["class-time-label"]}>08:30–09:20</p>
-                    <ProgressBar completed={25} isLabelVisible={false} />
+                    <label className={styles["class-time-label"]}>08:30–09:20</label>
+                    <progress value="15" max="50"></progress>
                 </div>
             </div>
             <div className={styles["class-button-container"]}>

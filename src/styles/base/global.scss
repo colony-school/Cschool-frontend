@@ -26,6 +26,12 @@ input[type="text"], input[type="number"], input[type="email"], input[type="passw
     }
 }
 
+progress {
+    width: 100%;
+    height: 1rem;
+    accent-color: p.$primary;
+}
+
 // Scrollbar styling
 ::-webkit-scrollbar {
     width: 0.3rem;
