@@ -15,7 +15,12 @@
     &-content {
         padding: 0.3rem 0.6rem 0.3rem 2.1rem;
     }
-    &-announcement {
-        @extend .post;
-    }
+}
+
+.post-announcement {
+    @extend .post;
+}
+
+.post-shared-file {
+    @extend .post;
 }

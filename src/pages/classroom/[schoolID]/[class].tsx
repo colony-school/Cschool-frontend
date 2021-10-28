@@ -76,12 +76,12 @@ const Classroom: NextPage = () => {
                             {
                                 type: "announcement",
                                 id: "1",
-                                body: "# Breaking news: Jimmy Watches Porn"
+                                body: "# Breaking news: Jimmy Asks What the Function is Returning \n\n He clearly sees it and yet he still asks"
                             },
                             {
                                 type: "sharedFile",
                                 id: "2",
-                                annotation: "Spent a lot of time one this. Use responsibly!\n\nNote: please read the use policies this time...",
+                                annotation: "Spent a lot of time one this. Use responsibly!\n\nNote: ***please*** read the use policies this time...",
                                 links: [],
                                 file: "https://firebasestorage.googleapis.com/v0/b/siravit-p.appspot.com/o/portfolio%2FEmocial.png?alt=media&token=040736c3-afba-4847-8b9f-a08363c9cc8d",
                                 usePolicies: {

@@ -6,14 +6,15 @@
 
 .card {
     @include cc.card(p.$secondary);
-    padding: 0.3rem;
+    padding: 0.6rem;
 }
 
 .root {
     display: flex;
     flex-direction: column;
-    gap: 0.6rem;
+    gap: 1.2rem;
     padding: 0 0.9rem 0.9rem 0.9rem;
+    width: calc(100vw - 20rem);
 }
 
 .header {
@@ -23,7 +24,7 @@
     justify-content: flex-start;
     align-items: flex-end;
     height: 16rem;
-    width: calc(100vw - 2.7rem);
+    width: calc(100% - 1.2rem);
     padding: 0.6rem;
     &-card {
         @include cc.card(p.$card-translucent, false);
@@ -34,7 +35,7 @@
 }
 
 .split {
-    @include ls.split-horizontal-uneven-2(auto, calc(100vw - 20rem), 0.6rem);
+    @include ls.split-horizontal-uneven-2(1fr, 3fr, 1.2rem);
 }
 
 .content {
